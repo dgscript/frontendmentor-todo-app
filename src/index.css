@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gray-50: hsl(0, 0%, 98%);
+  --color-purple-300: hsl(234, 39%, 85%);
+  --color-gray-300: hsl(233, 11%, 84%);
+  --color-gray-600: hsl(236, 9%, 61%);
+  --color-navy-850: hsl(235, 19%, 35%);
+  --color-navy-950: hsl(235, 21%, 11%);
+  --color-navy-900: hsl(235, 24%, 19%);
+  --color-purple-100-hover: hsl(236, 33%, 92%);
+  --color-purple-600: hsl(235, 16%, 43%);
+  --color-purple-700: hsl(233, 14%, 35%);
+  --color-purple-800: hsl(237, 14%, 26%);
+  --color-blue-500: hsl(220, 98%, 61%);
+}
+
+:root {
+  --gray-50: hsl(0, 0%, 98%);
+  --purple-300: hsl(234, 39%, 85%);
+  --gray-300: hsl(233, 11%, 84%);
+  --gray-600: hsl(236, 9%, 61%);
+  --navy-850: hsl(235, 19%, 35%);
+  --navy-950: hsl(235, 21%, 11%);
+  --navy-900: hsl(235, 24%, 19%);
+  --purple-100-hover: hsl(236, 33%, 92%);
+  --purple-600: hsl(235, 16%, 43%);
+  --purple-700: hsl(233, 14%, 35%);
+  --purple-800: hsl(237, 14%, 26%);
+  --blue-500: hsl(220, 98%, 61%);
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: var(--navy-950);
+  transition: background-color 0.2s ease;
+}
+
+#notes-container .note:first-child {
+  border-radius: 0.3rem 0.3rem 0 0;
+}
+
+.checkbox-container::before {
+  content: "";
+  background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  transition: opacity 0.1s ease;
+  opacity: 0;
+}
+.checkbox-header {
+  transition: opacity 0.5s ease !important;
+}
+.checkbox-container {
+  opacity: 1;
+  position: relative;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+  background: var(--purple-800);
+
+  transition: all 0.2s ease;
+  z-index: 4;
+}
+.checkbox-container:hover::before {
+  opacity: 1;
+}
+input[type="checkbox"] {
+  position: relative;
+  width: 13px;
+  height: 13px;
+  z-index: 333;
+  appearance: none;
+  cursor: pointer;
+}
+input[type="checkbox"]::before {
+  content: "";
+  background-color: var(--navy-900);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.lightmode-checkbox::before {
+  background-color: white !important;
+}
+.lightmode-checkbox {
+  background-color: var(--gray-300) !important;
+}
+.checkbox-container svg {
+  position: absolute;
+  display: none;
+  z-index: 444;
+  pointer-events: none;
+}
+
+.checkbox-container:has(input:checked) {
+  background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+.checkbox-container:has(input:checked) svg {
+  display: block;
+}
+.checkbox-container:has(input:checked) input::before {
+  background-image: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+
+#notes-wrapper::-webkit-scrollbar {
+  background-color: var(--navy-900);
+  position: absolute;
+  display: none;
+}
+#notes-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--navy-850);
+  border-radius: 10px;
+  z-index: 33;
+}
+#notes-wrapper::-webkit-scrollbar-corner {
+  background-color: orange;
+}
+#notes-wrapper::-webkit-scrollbar-button {
+  background-color: var(--navy-850);
+  border-radius: 50%;
+}
