@@ -145,3 +145,15 @@ input[type="checkbox"]::before {
   background-color: var(--navy-850);
   border-radius: 50%;
 }
+
+@media (height > 700px) {
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #drag-drop-msg {
+    padding-bottom: 0;
+  }
+}

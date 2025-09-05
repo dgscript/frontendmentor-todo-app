@@ -165,7 +165,10 @@ function App() {
           />
         </div>
 
-        <p className="text-purple-600 font-semibold my-10 text-center text-[0.9rem] select-none max-md:mt-25 max-md:pb-10">
+        <p
+          id="drag-drop-msg"
+          className="text-purple-600 font-semibold my-10 text-center text-[0.9rem] select-none max-md:mt-25 pb-10"
+        >
           Drag and drop to reorder list
         </p>
       </main>
