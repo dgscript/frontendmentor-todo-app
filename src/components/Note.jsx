@@ -47,7 +47,7 @@ export default function Note({
           onChange={() => {
             changeCompleteNote(noteId);
           }}
-          defaultChecked={noteComplete && "true"}
+          checked={noteComplete && "true"}
           type="checkbox"
           className={currentTheme && "lightmode-checkbox"}
         />

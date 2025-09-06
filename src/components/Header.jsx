@@ -12,6 +12,30 @@ export default function Header({
   const headerSend = useRef();
   const [headerCheckbox, setHeaderCheckbox] = useState(false);
 
+  const [firstRender, setFirstRender] = useState(false);
+  const [secondRender, setSecondRender] = useState(false);
+  useEffect(() => {
+    /* deals with the multiple rendering */
+    if (!firstRender) {
+      setFirstRender(true);
+    } else {
+      if (!secondRender) {
+        setSecondRender(true);
+      } else {
+        localStorage.setItem("notes", JSON.stringify(notes));
+        console.log(JSON.parse(localStorage.getItem("notes")));
+      }
+    }
+  }, [notes]);
+
+  /* load the notes from localstorage */
+  useEffect(() => {
+    let cachedNotes = JSON.parse(localStorage.getItem("notes"));
+    if (cachedNotes) {
+      setNotes(cachedNotes);
+    }
+  }, []);
+
   return (
     <div className="w-full mb-7 max-md:mt-3 *:transition">
       <div className="flex justify-between items-center my-7">
